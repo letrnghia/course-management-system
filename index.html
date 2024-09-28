@@ -49,10 +49,69 @@
   <div id="lab" class="tab-content" style="display: none;">
     <h1>Lab</h1>
     <p>Choose a lab to proceed:</p>
-    <a href="lab1.html">Lab 1</a>
+    <a href="#lab1" onclick="showLab1()">Lab 1</a>
     <a href="lab2.html">Lab 2</a>
   </div>
-  
+
+  <div id="lab1-content" class="tab-content" style="display: none;">
+    <h1>Lab 1</h1>
+    <form id="lab1Form">
+      <!-- Username -->
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" maxlength="255" required>
+      <small class="error" id="usernameError"></small>
+      <br><br>
+
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" maxlength="255" required>
+      <button type="button" onclick="togglePassword()">Show/Hide</button>
+      <small class="error" id="passwordError"></small>
+      <br><br>
+
+      <!-- Email -->
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" maxlength="255" required>
+      <small class="error" id="emailError"></small>
+      <br><br>
+
+      <!-- Full Name (Optional) -->
+      <label for="fullName">Full Name (Optional):</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" maxlength="255">
+      <br><br>
+
+      <!-- Role Dropdown -->
+      <label for="role">Role:</label>
+      <select id="role" name="role" required>
+        <option value="">Select Role</option>
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+      </select>
+      <small class="error" id="roleError"></small>
+      <br><br>
+
+      <!-- Profile Picture -->
+      <label for="profilePicture">Profile Picture:</label>
+      <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+      <img id="profilePreview" alt="Profile Picture Preview" style="display:none; width:100px; height:100px;">
+      <br><br>
+
+      <!-- Account Created At (Read-only) -->
+      <label>Account Created At:</label>
+      <input type="text" id="createdAt" readonly value="2023-09-28">
+      <br><br>
+
+      <!-- Last Updated At (Read-only) -->
+      <label>Last Updated At:</label>
+      <input type="text" id="updatedAt" readonly value="2023-09-28">
+      <br><br>
+
+      <!-- Buttons -->
+      <button type="submit" id="submitBtn" disabled>Create Account</button>
+      <button type="button" onclick="cancelForm()">Cancel</button>
+    </form>
+  </div>
+
   <script>
     // Show specific tabs
     document.querySelectorAll('.navbar a').forEach(link => {
